@@ -8,7 +8,7 @@ help:
 	@echo "";
 
 generate:
-	python workstation.py
+	python personal_stack.py
 
 create:
-	aws -h
+	bash tool_createstack.sh
