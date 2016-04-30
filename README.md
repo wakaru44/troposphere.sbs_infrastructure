@@ -10,6 +10,19 @@ This is part of a bigger effort, to have a remote work station, with some basics
 
 and give you the access details of such a thing. 
 
+## Features 
+
+- spins up an insntance
+
+- there is some basic tooling around to make it easier to use, `make` and the `tool_*` scripts.
+
+
+## Work in progress
+
+- make it add the instance to a hosted zone with a nice dns name
+
 ## Improvements
 
-for now it just spins the instance. in the future, some static storage would be awesome
+- Add some static storage that is not destroyed after the destruction of the stack.
+
+- use an existing VPC to spin up the instance (lets call it personaldev VPC)
