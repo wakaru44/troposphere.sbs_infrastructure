@@ -1,0 +1,62 @@
+{
+    "Outputs": {
+        "InstanceAccess": {
+            "Description": "Command to use to SSH to instance",
+            "Value": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "ssh -i ",
+                        {
+                            "Ref": "KeyPair"
+                        },
+                        " ubuntu@",
+                        {
+                            "Fn::GetAtt": [
+                                "PersonalInstance",
+                                "PublicDnsName"
+                            ]
+                        }
+                    ]
+                ]
+            }
+        }
+    },
+    "Parameters": {
+        "KeyPair": {
+            "Description": "The name of the keypair to use for SSH access",
+            "Type": "String"
+        }
+    },
+    "Resources": {
+        "PersonalInstance": {
+            "Properties": {
+                "ImageId": "ami-5a60c229",
+                "InstanceType": "m1.small",
+                "KeyName": {
+                    "Ref": "KeyPair"
+                },
+                "SecurityGroups": [
+                    {
+                        "Ref": "PersonalSecurityGroup"
+                    }
+                ]
+            },
+            "Type": "AWS::EC2::Instance"
+        },
+        "PersonalSecurityGroup": {
+            "Properties": {
+                "GroupDescription": "Allow access to the Personal project instances from anywhere",
+                "SecurityGroupIngress": [
+                    {
+                        "CidrIp": "0.0.0.0/0",
+                        "FromPort": "22",
+                        "IpProtocol": "tcp",
+                        "ToPort": "22"
+                    }
+                ]
+            },
+            "Type": "AWS::EC2::SecurityGroup"
+        }
+    }
+}
