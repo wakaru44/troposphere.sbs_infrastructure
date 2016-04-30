@@ -1,0 +1,10 @@
+#python stuff
+*pyc
+
+#generic stuff
+archive
+*log
+
+# virtualenv stuff
+ENV
+build

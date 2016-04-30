@@ -1,0 +1,27 @@
+Jinja2==2.8
+MarkupSafe==0.23
+PyYAML==3.11
+WebOb==1.5.0b0
+ansible==1.7.2
+argparse==1.2.1
+bzr-etckeeper==0.0.0
+decorator==4.0.2
+## FIXME: could not find svn URL in dependency_links for this package:
+distribute==0.6.24dev-r0
+ecdsa==0.11
+httplib2==0.9
+ipython==4.0.0
+ipython-genutils==0.1.0
+paramiko==1.15.1
+path.py==8.1
+pexpect==3.3
+pickleshare==0.5
+pycrypto==2.6.1
+python-apt==0.9.3.12
+simplegeneric==0.8.1
+six==1.8.0
+traitlets==4.0.0
+troposphere==1.5.0
+virtualenv==15.0.1
+webapp2==2.5.2
+wsgiref==0.1.2
