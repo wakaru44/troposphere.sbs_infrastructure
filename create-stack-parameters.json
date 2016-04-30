@@ -1,7 +1,6 @@
 {
     "StackName": "Personal005", 
     "TemplateBody": "template003.json", 
-    "TemplateURL": "", 
     "Parameters": [
         {
             "ParameterKey": "KeyPair", 
@@ -9,20 +8,8 @@
             "UsePreviousValue": true
         }
     ], 
-    "DisableRollback": true, 
-    "TimeoutInMinutes": 0, 
-    "NotificationARNs": [
-        ""
-    ], 
-    "Capabilities": [
-        ""
-    ], 
-    "ResourceTypes": [
-        ""
-    ], 
-    "OnFailure": "", 
-    "StackPolicyBody": "", 
-    "StackPolicyURL": "", 
+    "TimeoutInMinutes": 10, 
+    "OnFailure": "DO_NOTHING", 
     "Tags": [
         {
             "Key": "Environment", 
