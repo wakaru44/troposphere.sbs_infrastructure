@@ -2,8 +2,8 @@
 
 echo "create a stack"
 echo "Any parameter passed after calling the script will be appended to the aws cloudformation command"
-NAME=personal005
-TMPL=template003.json
+NAME=personal$(cat version.md)
+TMPL=personal_stack.json
 CFNPARAMS=create-stack-parameters.json
 
 # full version with manual params
