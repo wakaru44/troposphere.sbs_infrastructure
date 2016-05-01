@@ -1,10 +1,5 @@
 {
     "Outputs": {
-        "DomainName": {
-            "Value": {
-                "Ref": "personalDNSRecord"
-            }
-        },
         "InstanceAccess": {
             "Description": "Command to use to SSH to instance",
             "Value": {
@@ -28,10 +23,6 @@
         }
     },
     "Parameters": {
-        "HostedZone": {
-            "Description": "The DNS name of an existing Amazon Route 53 hosted zone",
-            "Type": "String"
-        },
         "KeyPair": {
             "Description": "The name of the keypair to use for SSH access",
             "Type": "String"
@@ -69,52 +60,6 @@
                 ]
             },
             "Type": "AWS::EC2::SecurityGroup"
-        },
-        "personalDNSRecord": {
-            "Properties": {
-                "Comment": "DNS name for the personal instance.",
-                "HostedZoneName": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            {
-                                "Ref": "HostedZone"
-                            },
-                            "."
-                        ]
-                    ]
-                },
-                "Name": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            {
-                                "Ref": "PersonalInstance"
-                            },
-                            ".",
-                            {
-                                "Ref": "AWS::Region"
-                            },
-                            ".",
-                            {
-                                "Ref": "HostedZone"
-                            },
-                            "."
-                        ]
-                    ]
-                },
-                "ResourceRecords": [
-                    {
-                        "Fn::GetAtt": [
-                            "PersonalInstance",
-                            "PublicIp"
-                        ]
-                    }
-                ],
-                "TTL": "900",
-                "Type": "A"
-            },
-            "Type": "AWS::Route53::RecordSet"
         }
     }
 }
