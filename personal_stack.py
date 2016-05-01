@@ -1,6 +1,6 @@
 
 # Import troposphere
-from troposphere import Template, Ref, Output, Join, GetAtt, Parameter
+from troposphere import Template, Ref, Output, Join, GetAtt, Parameter, Base64
 import troposphere.ec2 as ec2
 from troposphere.route53 import RecordSetType
 
@@ -33,6 +33,11 @@ instance.ImageId = "ami-5a60c229" # oficial aws ubuntu 14.04 ami for ireland eu-
 instance.InstanceType = "m1.small"
 instance.SecurityGroups = [Ref(sg)]
 instance.KeyName = Ref(keypair)
+instance.UserData = Base64("""
+#!/bin/bash
+curl http://juanantonio.fm/HIBOY
+echo "this should be a script or sumzin"
+""")
 
 # Add instance to template
 template.add_resource(instance)
@@ -53,7 +58,7 @@ personalDNSRecord = template.add_resource(RecordSetType(
               Ref(hostedzone), "."]),
     Type="A",
     TTL="900",
-    ResourceRecords=[GetAtt("Ec2Instance", "PublicIp")],
+    ResourceRecords=[GetAtt("PersonalInstance", "PublicIp")],
 ))
 
 
