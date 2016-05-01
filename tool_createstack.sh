@@ -10,5 +10,5 @@ CFNPARAMS=create-stack-parameters.json
 #aws cloudformation create-stack  --stack-name $NAME --template-body file://$TMPL  --parameters='{"ParameterKey":"KeyPair","ParameterValue":"jenkinsWakaru"}'  --tags='{"Key":"Environment","Value":"dev"}' | tee -a stack_id.log
 
 # swetter version with file based parameters
-aws cloudformation create-stack  --stack-name $NAME --template-body file://$TMPL  --cli-input-json file://$CFNPARAMS ${@:2} | tee -a stack_id.log
+aws cloudformation create-stack  --stack-name $NAME --template-body file://$TMPL  --cli-input-json file://$CFNPARAMS ${@:2}  | tee -a stack_id.log
 

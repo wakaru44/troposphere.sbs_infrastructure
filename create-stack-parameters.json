@@ -1,6 +1,5 @@
 {
-    "StackName": "Personal005", 
-    "TemplateBody": "template003.json", 
+    "TemplateBody": "personal_stack.json", 
     "Parameters": [
         {
             "ParameterKey": "KeyPair", 
@@ -17,7 +16,7 @@
         },
         {
           "Key":"Name",
-          "Value":"Personal005"
+          "Value":"PersonalStack"
         }
     ]
 }
