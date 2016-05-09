@@ -3,10 +3,12 @@
 help:
 	@echo "Troposphere code to generate a personal workstation in the cloud";
 	@echo "";
-	@echo "generate     - generate the cloud formation stack";
-	@echo "create       - make the call to the AWS cli to spin up the instance";
-	@echo "bump         - Bump the version of the stack";
-	@echo "describe     - describe AWS instances in a nice way";
+	@echo "generate       - generate the cloud formation stack from py to json";
+	@echo "bump           - Bump the version of the stack, as it will be identified in AWS";
+	@echo "create         - make the call to the AWS cli to spin up the instance";
+	@echo "spinup         - Do everything. From the generation to the creation";
+	@echo "describe       - describe AWS instances in a nice way";
+	@echo "long-describe  - describe AWS instances in a LONG way";
 	@echo "";
 
 generate:
