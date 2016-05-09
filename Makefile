@@ -18,5 +18,11 @@ create:
 bump:
 	bash tool_bump_version.sh
 
+spinup: bump generate create
+	
+long-describe:
+	 aws  ec2 describe-instances  --query 'Reservations[*].Instances[*].[InstanceId,Tags,PublicDnsName,KeyName]'
+
 describe:
-	mkdir -p tmp; aws ec2 describe-instances > tmp/instances.json; python gettingdata.py
+	aws  ec2 describe-instances  --query 'Reservations[*].Instances[*].[InstanceId,Tags,PublicDnsName,KeyName]'  --output text | grep -B 1 stack-name
+

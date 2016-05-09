@@ -21,6 +21,7 @@ and give you the access details of such a thing.
 
 - make it add the instance to a hosted zone with a nice dns name
 
+
 ## Improvements
 
 - Add some static storage that is not destroyed after the destruction of the stack.
